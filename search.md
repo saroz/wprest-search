@@ -74,7 +74,7 @@ You can write this code on `function.php` or create different file and link on `
 add_action( 'rest_api_init', function  wfg_rest_api_register_routes() {
 	register_rest_route( 'wfg/v1', '/search', array(
 		'methods'  =>  'GET',
-		'callback'  =>  wfg_rest_api_search(),
+		'callback'  =>  __NAMESPACE__  .  '\\wfg_rest_api_search()',
 	));
 });
 
@@ -212,3 +212,6 @@ $('.search-autocomplete').autocomplete({
 });
 
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExOTkxNTg0NDNdfQ==
+-->
