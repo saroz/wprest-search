@@ -2,12 +2,7 @@
 We begin with the search filed *HTML*. 
 
 ``` html
-<input
-	name="global_search"
-	class="search-autocomplete"
-	type="text"
-	placeholder="Start typing..."
->
+<input name="global_search" class="search-autocomplete" type="text" placeholder="Start typing...">
 ```
 
 #### Step 2: Search Template (partial template)
@@ -26,9 +21,7 @@ Link your search template with your website
 e.g. `header.php` or `page.php`
 
 ``` php
-<?php
-	get_template_part( 'template-parts/search.php' );
-?>
+<?php get_template_part( 'template-parts/search.php' ); ?>
 ```
 
 #### Step 4: Style.css
