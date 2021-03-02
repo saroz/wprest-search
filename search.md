@@ -44,7 +44,7 @@ add_action('wp_enqueue_scripts', function () {
 	wp_register_script( 'my_search', get_stylesheet_directory_uri() . '/search.js', array('jquery') );
 	$ajax_params  =  array(
 		// our search api
-		'search_api'  =>  home_url( 'wp-json/wfg/v1/search' )
+		'search_api'  =>  home_url( 'wp-json/project/v1/search' )
 		'security'  =>  wp_create_nonce('search_api'),
 	);
 	wp_localize_script( 'my_search', 'custom_apis', $ajax_params);
@@ -64,10 +64,10 @@ You can write this code on `function.php` or create different file and link on `
 * WP REST API register custom endpoints
 */
 
-add_action( 'rest_api_init', function  wfg_rest_api_register_routes() {
-	register_rest_route( 'wfg/v1', '/search', array(
+add_action( 'rest_api_init', function  project_rest_api_register_routes() {
+	register_rest_route( 'project/v1', '/search', array(
 		'methods'  =>  'GET',
-		'callback'  =>  __NAMESPACE__  .  '\\wfg_rest_api_search()',
+		'callback'  =>  __NAMESPACE__  .  '\\project_rest_api_search()',
 	));
 });
 
@@ -80,7 +80,7 @@ add_action( 'rest_api_init', function  wfg_rest_api_register_routes() {
 * @param  object $request
 */
 
-function  wfg_rest_api_search( $request ) {
+function  project_rest_api_search( $request ) {
 	if ( empty( $request['global_search'] ) ) { // search field name `global_search`
 		return;
 	}
